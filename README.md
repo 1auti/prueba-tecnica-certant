@@ -118,14 +118,8 @@ Por defecto, el servidor de Angular se ejecuta en el puerto `4200`, por lo que p
 http://localhost:4200
 ```
 
-Si deseas cambiar el puerto en el que se ejecuta el servidor (por ejemplo, a `8080`), puedes usar el siguiente comando:
 
-```bash
-ng serve --port 8080
-```
 
----
+> **Nota**: Con estos pasos podrás tener tu entorno de desarrollo listo para trabajar tanto con la base de datos PostgreSQL y pgAdmin usando Docker, como con tu proyecto Angular ejecutándose en el servidor de desarrollo.
 
-Con estos pasos podrás tener tu entorno de desarrollo listo para trabajar tanto con la base de datos PostgreSQL y pgAdmin usando Docker, como con tu proyecto Angular ejecutándose en el servidor de desarrollo.
-```
 
