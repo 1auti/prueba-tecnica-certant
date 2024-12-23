@@ -1,0 +1,53 @@
+<div
+  *ngIf="isAdmin && isSidebarOpen"
+  class="fixed top-0 left-0 h-screen w-64 bg-gray-800 text-white shadow-lg transition-transform transform"
+>
+  <div class="p-6 border-b border-gray-700">
+    <h2 class="text-xl font-bold text-center">Admin Panel</h2>
+    <button class="absolute top-4 right-4 text-white" (click)="toggleSidebar()">✖</button>
+  </div>
+  <nav class="mt-6">
+    <ul class="space-y-4">
+      <li>
+        <a routerLink="/gestor-clientes" class="block px-6 py-3 rounded-lg hover:bg-gray-700 transition">
+          Gestión de Clientes
+        </a>
+      </li>
+      <li>
+        <a routerLink="/gestor-tecnicos" class="block px-6 py-3 rounded-lg hover:bg-gray-700 transition">
+          Gestión de Técnicos
+        </a>
+      </li>
+      <li>
+        <a routerLink="/gestor-citas" class="block px-6 py-3 rounded-lg hover:bg-gray-700 transition">
+          Gestión de Citas
+        </a>
+      </li>
+      <li>
+        <a routerLink="/gestor-vehiculos" class="block px-6 py-3 rounded-lg hover:bg-gray-700 transition">
+          Gestión de Vehículos
+        </a>
+      </li>
+      <li>
+        <a routerLink="/gestor-repuesto" class="block px-6 py-3 rounded-lg hover:bg-gray-700 transition">
+          Gestión de Repuestos
+        </a>
+      </li>
+      <li>
+        <a routerLink="/gestor-servicio" class="block px-6 py-3 rounded-lg hover:bg-gray-700 transition">
+          Gestión de Servicios
+        </a>
+      </li>
+
+      <li *ngIf="isAdmin">
+        <a
+          routerLink="/admin-dashboard"
+          class="block px-6 py-3 rounded-lg hover:bg-gray-700 transition"
+        >
+          Panel de Administración
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+</div>

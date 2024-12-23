@@ -1,0 +1,14 @@
+package com.lautaro_cenizo.entity.notificacion;
+
+public enum TipoNotificacion {
+    RECORDATORIO_CITA,
+    SERVICIO_COMPLETADO,
+    CLIENTE_PREMIUM,
+    SERVICIO_GRATIS_DISPONIBLE,
+    CONTROL_CALIDAD,
+    CONFIRMACION_CITA,
+    INICIO_DIAGNOSTICO,
+    ESPERA_REPUESTOS,
+    INICIO_REPARACION,
+    LISTO_ENTREGA
+}

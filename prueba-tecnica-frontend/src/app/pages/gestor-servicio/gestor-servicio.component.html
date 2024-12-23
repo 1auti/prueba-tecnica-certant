@@ -1,0 +1,49 @@
+<div class="container mx-auto px-4 py-6">
+    <!-- Barra de herramientas superior -->
+    <div class="mb-6 flex justify-between items-center">
+      <div class="flex gap-4">
+        <button
+          (click)="cargarServicios()"
+          class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+          Todos
+        </button>
+        <button
+          (click)="cargarServiciosActivos()"
+          class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg">
+          Servicios Activos
+        </button>
+        <select
+          [(ngModel)]="tipoServicioFiltro"
+          (change)="tipoServicioFiltro && filtrarPorTipo(tipoServicioFiltro)"
+          class="border rounded-lg px-3 py-2">
+          <option [ngValue]="null">Todos los tipos</option>
+          <option *ngFor="let tipo of servicioFields[2].options" [value]="tipo">
+            {{tipo}}
+          </option>
+        </select>
+      </div>
+  
+      <div class="flex items-center gap-4">
+        <button
+          (click)="mostrarFormularioNuevo()"
+          class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+          </svg>
+          Nuevo Servicio
+        </button>
+      </div>
+    </div>
+  
+    <app-crud-container
+      #crudContainer
+      [title]="'Gestión de Servicios'"
+      [fields]="servicioFields"
+      [items]="servicios"
+      [isSubmitting]="isSubmitting"
+      [showAddButton]="false"
+      (create)="crearServicio($event)"
+      (update)="actualizarServicio($event)"
+      (delete)="eliminarServicio($event)">
+    </app-crud-container>
+  </div>

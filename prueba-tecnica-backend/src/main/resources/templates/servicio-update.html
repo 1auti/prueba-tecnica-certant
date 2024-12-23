@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualización de Servicio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .content {
+            padding: 20px;
+        }
+        .status {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .footer {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Actualización de Servicio</h1>
+    </div>
+    <div class="content">
+        <p>Estimado/a <span th:text="${clienteNombre}"></span>,</p>
+
+        <div class="status">
+            <h3>Estado del Servicio: <span th:text="${estadoServicio}"></span></h3>
+            <p th:text="${descripcionEstado}"></p>
+        </div>
+
+        <div th:if="${comentarios}" class="status">
+            <h3>Comentarios adicionales:</h3>
+            <p th:text="${comentarios}"></p>
+        </div>
+
+        <div class="vehicle-info">
+            <h3>Información del Vehículo:</h3>
+            <p>
+                Marca: <span th:text="${vehiculoMarca}"></span><br>
+                Modelo: <span th:text="${vehiculoModelo}"></span><br>
+                Patente: <span th:text="${vehiculoPatente}"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>¿Necesita ayuda? Contáctenos:</p>
+        <p>
+            Teléfono: (XXX) XXX-XXXX<br>
+            Email: contacto@boutiqueautomotor.com
+        </p>
+    </div>
+</div>
+</body>
+</html>

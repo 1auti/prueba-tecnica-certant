@@ -1,0 +1,75 @@
+<div class="container mx-auto px-4 py-6">
+  <!-- Barra de herramientas superior -->
+  <div class="mb-6 flex justify-between items-center">
+    <div class="flex gap-4">
+      <button
+        (click)="cargarCitasFuturas()"
+        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+        Citas Futuras
+      </button>
+      <div class="flex gap-2">
+        <input
+        type="text"
+        [(ngModel)]="dni"
+        placeholder="DNI del cliente"
+        class="border rounded-lg px-3 py-2">
+      <button
+        (click)="buscarClientePorDNI()"
+        class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">
+        Buscar cliente
+      </button>
+      
+        <button
+          (click)="cargarCitasPorCliente()"
+          class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">
+          Citas por Cliente
+        </button>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <div class="flex gap-2">
+        <input
+          type="datetime-local"
+          [(ngModel)]="fechaSeleccionada"
+          class="border rounded-lg px-3 py-2"
+        />
+        <button
+          (click)="verificarDisponibilidad()"
+          class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg">
+          Verificar Disponibilidad
+        </button>
+      </div>
+      <button
+        (click)="mostrarFormularioNuevo()"
+        class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+        Nueva Cita
+      </button>
+    </div>
+  </div>
+
+  <app-crud-container
+    #crudContainer
+    [title]="'Gestión de Citas'"
+    [fields]="citaFields"
+    [items]="citas"
+    [isSubmitting]="isSubmitting"
+    [showAddButton]="false"
+    (create)="crearCita($event)"
+    (delete)="cancelarCita($event)"
+    (terminarCita)="terminarCita($event)">
+  </app-crud-container>
+
+  <app-form
+    *ngIf="showFormTerminarCita"
+    [formTitle]="'Terminar cita'"
+    [fields]="fieldsTerminarCita"
+    [initialData]="initialDataTerminarCita"
+    [isSubmitting]="isSubmittingTerminarCita"
+    (formSubmit)="onSubmitTerminarCita($event)"
+    (onCancel)="onCancelTerminarCita()">
+  </app-form>
+</div>

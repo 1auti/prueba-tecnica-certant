@@ -1,0 +1,53 @@
+<div class="container mx-auto px-4 py-6">
+    <!-- Barra de herramientas superior -->
+    <div class="mb-6 flex justify-between items-center">
+      <div class="flex gap-4">
+        <button
+          (click)="cargarClientes()"
+          class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+          Todos
+        </button>
+        <button
+          (click)="cargarClientesPremium()"
+          class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">
+          Clientes Premium
+        </button>
+      </div>
+  
+      <div class="flex items-center gap-4">
+        <button
+          (click)="mostrarFormularioNuevo()"
+          class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+          </svg>
+          Nuevo Cliente
+        </button>
+        <div class="flex gap-2">
+          <input
+            type="text"
+            [(ngModel)]="dniBusqueda"
+            placeholder="Buscar por DNI"
+            class="border rounded-lg px-3 py-2"
+          />
+          <button
+            (click)="buscarPorDNI()"
+            class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg">
+            Buscar
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <app-crud-container
+      #crudContainer
+      [title]="'Gestión de Clientes'"
+      [fields]="clienteFields"
+      [items]="clientes"
+      [isSubmitting]="isSubmitting"
+      [showAddButton]="false"
+      (create)="crearCliente($event)"
+      (update)="actualizarCliente($event)"
+      (delete)="eliminarCliente($event)">
+    </app-crud-container>
+  </div>
