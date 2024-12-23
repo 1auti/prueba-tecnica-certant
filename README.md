@@ -50,6 +50,7 @@ Para poder utilizar servicios que requieren autenticación a través de una cuen
 MAIL_USERNAME=tucorreo@gmail.com
 MAIL_PASSWORD=contraseña que te dio gmail
 MAIL_FROM=tucorreo@gmail.com
+```
 
 > **Nota**: La contraseña de aplicación es diferente de tu contraseña normal de Gmail y solo se usa para autenticar aplicaciones externas.
 
