@@ -54,10 +54,6 @@ MAIL_FROM=tucorreo@gmail.com
 
 > **Nota**: La contraseña de aplicación es diferente de tu contraseña normal de Gmail y solo se usa para autenticar aplicaciones externas.
 
-
-Aquí tienes el contenido mejorado con una estructura más clara y fácil de entender en formato Markdown:
-
-```markdown
 ## Configuración del Proyecto
 
 > **Nota**: Si no tienes pgAdmin y PostgreSQL, te dejo un archivo `docker-compose.yml` para que puedas desplegar la base de datos de manera sencilla.
