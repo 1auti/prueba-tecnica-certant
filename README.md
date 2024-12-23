@@ -55,48 +55,81 @@ MAIL_FROM=tucorreo@gmail.com
 > **Nota**: La contraseña de aplicación es diferente de tu contraseña normal de Gmail y solo se usa para autenticar aplicaciones externas.
 
 
+Aquí tienes el contenido mejorado con una estructura más clara y fácil de entender en formato Markdown:
+
+```markdown
 ## Configuración del Proyecto
 
-> **Nota**:Si no tenes pgAdmin y PostgreSQL te dejo un docker compose para que puedas desplegar la base de datos 
+> **Nota**: Si no tienes pgAdmin y PostgreSQL, te dejo un archivo `docker-compose.yml` para que puedas desplegar la base de datos de manera sencilla.
 
-Este proyecto utiliza **Docker** para gestionar los servicios de PostgreSQL y pgAdmin. Para configurar el entorno de desarrollo, sigue los siguientes pasos:
+Este proyecto utiliza **Docker** para gestionar los servicios de PostgreSQL y pgAdmin. Para configurar el entorno de desarrollo, sigue estos pasos:
 
- Ejecutar Docker Compose
-Una vez que tienes el archivo docker-compose.yml, puedes ejecutar los siguientes comandos:
+### 1. Ejecutar Docker Compose
 
-Construir y lanzar los servicios:
+Si tienes el archivo `docker-compose.yml`, sigue estos pasos para levantar los servicios de PostgreSQL y pgAdmin:
 
-bash
-Copy code
+#### Construir y lanzar los servicios
+
+Ejecuta el siguiente comando para descargar las imágenes necesarias, crear los contenedores y levantarlos:
+
+```bash
 docker-compose up
-Este comando descargará las imágenes necesarias, creará los contenedores y los levantará.
+```
 
-Si necesitas correrlo en segundo plano (modo detached):
+#### Ejecutar en segundo plano (modo **detached**)
 
-bash
-Copy code
+Si prefieres ejecutar los servicios en segundo plano, usa el siguiente comando:
+
+```bash
 docker-compose up -d
-Para detener los servicios:
+```
 
-bash
-Copy code
+#### Detener los servicios
+
+Para detener los servicios y eliminar los contenedores, usa el siguiente comando:
+
+```bash
 docker-compose down
+```
 
+---
 
 ## Configurar un Proyecto Angular
 
- Instalar dependencias con npm install
-Dentro del directorio del proyecto, ejecuta el siguiente comando para instalar todas las dependencias necesarias que se encuentran en el archivo package.json:
+Sigue estos pasos para configurar tu proyecto Angular:
 
-bash
-Copy code
+### 1. Instalar dependencias con `npm install`
+
+Dentro del directorio del proyecto, ejecuta el siguiente comando para instalar todas las dependencias que están definidas en el archivo `package.json`:
+
+```bash
 npm install
-Este comando descarga todas las dependencias del proyecto, como las bibliotecas de Angular y otras necesarias para el funcionamiento de la aplicación.
+```
 
-Paso 3: Ejecutar el servidor de desarrollo con ng serve
-Una vez que las dependencias se hayan instalado correctamente, puedes iniciar el servidor de desarrollo con el siguiente comando:
+Este comando descargará las bibliotecas y paquetes necesarios para que tu aplicación Angular funcione correctamente.
 
-bash
-Copy code
+### 2. Ejecutar el servidor de desarrollo con `ng serve`
+
+Una vez que las dependencias estén instaladas correctamente, puedes iniciar el servidor de desarrollo con el siguiente comando:
+
+```bash
 ng serve
-Por defecto, el servidor de Angular se ejecuta en el puerto 4200, por lo que podrás acceder a la aplicación a través de http://localhost:4200 en tu navegador.
+```
+
+Por defecto, el servidor de Angular se ejecuta en el puerto `4200`, por lo que podrás acceder a la aplicación desde tu navegador en la siguiente URL:
+
+```
+http://localhost:4200
+```
+
+Si deseas cambiar el puerto en el que se ejecuta el servidor (por ejemplo, a `8080`), puedes usar el siguiente comando:
+
+```bash
+ng serve --port 8080
+```
+
+---
+
+Con estos pasos podrás tener tu entorno de desarrollo listo para trabajar tanto con la base de datos PostgreSQL y pgAdmin usando Docker, como con tu proyecto Angular ejecutándose en el servidor de desarrollo.
+```
+
