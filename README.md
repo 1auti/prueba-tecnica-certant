@@ -30,6 +30,358 @@ Se incluye un archivo de Postman con las colecciones de las API que puedes utili
 2. Haz clic en el botón **Importar** en la esquina superior izquierda.
 3. Selecciona el archivo `.json` que se encuentra en el directorio raíz de este proyecto, con el nombre `postman_collection.json`.
 4. El archivo será cargado en Postman y podrás empezar a hacer solicitudes a las API definidas.
+ ```bash
+{
+    "info": {
+        "name": "Taller Mecánico API",
+        "description": "Colección de endpoints para el sistema de taller mecánico",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Autenticación",
+            "item": [
+                {
+                    "name": "Registro Usuario",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": "http://localhost:8080/auth/register",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"firstname\": \"string\",\n    \"lastname\": \"string\",\n    \"username\": \"string\",\n    \"email\": \"user@example.com\",\n    \"password\": \"password123\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": "http://localhost:8080/auth/authenticate",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"password123\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Activar Cuenta",
+                    "request": {
+                        "method": "GET",
+                        "url": "http://localhost:8080/auth/activate-account?token={{token}}"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Clientes",
+            "item": [
+                {
+                    "name": "Crear Cliente",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": "http://localhost:8080/api/clientes",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"nombre\": \"string\",\n    \"apellido\": \"string\",\n    \"email\": \"string\",\n    \"dni\": \"string\",\n    \"telefono\": \"string\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Cliente",
+                    "request": {
+                        "method": "GET",
+                        "url": "http://localhost:8080/api/clientes/{{id}}"
+                    }
+                },
+                {
+                    "name": "Listar Clientes",
+                    "request": {
+                        "method": "GET",
+                        "url": "http://localhost:8080/api/clientes"
+                    }
+                },
+                {
+                    "name": "Actualizar Cliente",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": "http://localhost:8080/api/clientes/{{id}}",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"nombre\": \"string\",\n    \"apellido\": \"string\",\n    \"email\": \"string\",\n    \"dni\": \"string\",\n    \"telefono\": \"string\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Eliminar Cliente",
+                    "request": {
+                        "method": "DELETE",
+                        "url": "http://localhost:8080/api/clientes/{{id}}"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Vehículos",
+            "item": [
+                {
+                    "name": "Crear Vehículo",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": "http://localhost:8080/api/vehiculos",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"patente\": \"ABC123\",\n    \"anio\": 2020,\n    \"modelo\": \"string\",\n    \"marca\": \"string\",\n    \"clienteId\": 0,\n    \"color\": \"string\",\n    \"tiposVehiculo\": \"AUTOMOVIL\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Vehículo",
+                    "request": {
+                        "method": "GET",
+                        "url": "http://localhost:8080/api/vehiculos/{{id}}"
+                    }
+                },
+                {
+                    "name": "Listar Vehículos",
+                    "request": {
+                        "method": "GET",
+                        "url": "http://localhost:8080/api/vehiculos"
+                    }
+                },
+                {
+                    "name": "Actualizar Vehículo",
+                    "request": {
+                        "method": "PUT",
+                        "url": "http://localhost:8080/api/vehiculos/{{id}}",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"patente\": \"ABC123\",\n    \"anio\": 2020,\n    \"modelo\": \"string\",\n    \"marca\": \"string\",\n    \"clienteId\": 0,\n    \"color\": \"string\",\n    \"tiposVehiculo\": \"AUTOMOVIL\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Servicios",
+            "item": [
+                {
+                    "name": "Crear Servicio",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": "http://localhost:8080/api/servicios",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"descripcion\": \"string\",\n    \"tipoServicio\": \"MANTENIMIENTO\",\n    \"precio\": 100.00\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Listar Servicios",
+                    "request": {
+                        "method": "GET",
+                        "url": "http://localhost:8080/api/servicios"
+                    }
+                },
+                {
+                    "name": "Obtener Servicio",
+                    "request": {
+                        "method": "GET",
+                        "url": "http://localhost:8080/api/servicios/{{id}}"
+                    }
+                },
+                {
+                    "name": "Actualizar Servicio",
+                    "request": {
+                        "method": "PUT",
+                        "url": "http://localhost:8080/api/servicios/{{id}}",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"descripcion\": \"string\",\n    \"tipoServicio\": \"MANTENIMIENTO\",\n    \"precio\": 100.00\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Eliminar Servicio",
+                    "request": {
+                        "method": "DELETE",
+                        "url": "http://localhost:8080/api/servicios/{{id}}"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Técnicos",
+            "item": [
+                {
+                    "name": "Crear Técnico",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": "http://localhost:8080/api/tecnicos",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"nombre\": \"string\",\n    \"apellido\": \"string\",\n    \"email\": \"string\",\n    \"dni\": \"string\",\n    \"telefono\": \"string\",\n    \"cardId\": 0,\n    \"especialidad\": \"MECANICA_GENERAL\",\n    \"estaActivo\": true,\n    \"salario\": 50000.00\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Listar Técnicos",
+                    "request": {
+                        "method": "GET",
+                        "url": "http://localhost:8080/api/tecnicos"
+                    }
+                },
+                {
+                    "name": "Obtener Técnico",
+                    "request": {
+                        "method": "GET",
+                        "url": "http://localhost:8080/api/tecnicos/{{id}}"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Citas",
+            "item": [
+                {
+                    "name": "Crear Cita",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": "http://localhost:8080/api/citas",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"clienteId\": 0,\n    \"vehiculoId\": 0,\n    \"serviciosIds\": [1, 2, 3],\n    \"fecha\": \"2024-12-23T10:00:00\",\n    \"notas\": \"string\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Citas por Cliente",
+                    "request": {
+                        "method": "GET",
+                        "url": "http://localhost:8080/api/citas/cliente/{{clienteId}}"
+                    }
+                },
+                {
+                    "name": "Cancelar Cita",
+                    "request": {
+                        "method": "DELETE",
+                        "url": "http://localhost:8080/api/citas/{{id}}"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Historial Servicios",
+            "item": [
+                {
+                    "name": "Crear Historial",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": "http://localhost:8080/api/historial-servicios",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"citaId\": 0,\n    \"completadoALas\": \"2024-12-23T10:00:00\",\n    \"observaciones\": \"string\",\n    \"detallesTrabajo\": \"string\",\n    \"controlCalidadChequiado\": false,\n    \"tecnicoId\": 0,\n    \"clienteId\": 0,\n    \"calificacionServicio\": 8\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Listar Historial",
+                    "request": {
+                        "method": "GET",
+                        "url": "http://localhost:8080/api/historial-servicios"
+                    }
+                },
+                {
+                    "name": "Calificar Servicio",
+                    "request": {
+                        "method": "PUT",
+                        "url": "http://localhost:8080/api/historial-servicios/{{id}}/calificar?calificacion=8"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Notificaciones",
+            "item": [
+                {
+                    "name": "Crear Recordatorio",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": "http://localhost:8080/api/notificaciones/recordatorio"
+                    }
+                },
+                {
+                    "name": "Enviar Recordatorios",
+                    "request": {
+                        "method": "POST",
+                        "url": "http://localhost:8080/api/notificaciones/enviar-recordatorios"
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+```
 
 > **Nota**: Asegúrate de que los servicios (por ejemplo, PostgreSQL y pgAdmin) estén ejecutándose antes de hacer las solicitudes. Si usas Docker, puedes iniciar los servicios con el comando `docker-compose up`.
 
