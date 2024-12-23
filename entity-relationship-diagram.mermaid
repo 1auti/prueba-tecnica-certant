@@ -1,0 +1,84 @@
+erDiagram
+    Persona ||--|| User : tiene
+    Persona ||--|{ Cliente : "es un"
+    Persona ||--|{ Tecnico : "es un"
+
+    Cliente ||--|{ Vehiculo : tiene
+    Cliente ||--|{ Cita : tiene
+    Cliente ||--|{ HistorialServicio : tiene
+    Cliente ||--|{ Notificacion : tiene
+
+    Vehiculo ||--|{ Cita : tiene
+
+    Cita ||--|| HistorialServicio : tiene
+    Cita }|--|{ Servicio : tiene
+
+    HistorialServicio ||--|{ RepuestoUsado : tiene
+    HistorialServicio ||--|| SeguimientoServicio : tiene
+    HistorialServicio ||--|| Tecnico : "asignado a"
+
+    Repuesto ||--|{ RepuestoUsado : tiene
+
+    User }|--|{ Role : tiene
+    User ||--|{ Token : tiene
+
+    Tecnico ||--|{ JornadaLaboral : tiene
+
+    Persona {
+        Integer id PK
+        String nombre
+        String apellido
+        String email
+        String dni
+        String telefono
+    }
+
+    Cliente {
+        Boolean esPremuim
+        Integer contadorServicios
+        Boolean servicioGratisDisponible
+        DateTime fechasUltimosServiciosGratis
+    }
+
+    Cita {
+        Integer id PK
+        DateTime fecha
+        BigDecimal precioFinal
+        ESTADO proceso
+        String notas
+        Boolean esServicioGratis
+    }
+
+    HistorialServicio {
+        Integer id PK
+        DateTime completadoALas
+        String observaciones
+        String detallesTrabajo
+        Boolean controlCalidadChequiado
+        Boolean asistio
+        Integer calificacionServicio
+    }
+
+    Vehiculo {
+        Integer id PK
+        String patente
+        Integer anio
+        String modelo
+        String marca
+        String color
+        TiposVehiculo tiposVehiculo
+    }
+
+    Servicio {
+        Integer id PK
+        String descripcion
+        TipoServicio tipoServicio
+        Boolean estaActivo
+    }
+
+    Tecnico {
+        Long cardId
+        Especialidad especialidad
+        Boolean estaActivo
+        BigDecimal salario
+    }
