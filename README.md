@@ -16,7 +16,7 @@ La consigna de esta prueba técnica está detallada en el siguiente archivo PDF:
 
 A continuación, se muestra un diagrama de relaciones que representa las entidades y sus interacciones dentro del proyecto.
 
-![Diagrama de Relaciones](ruta/a/tu/diagrama_relaciones.png)
+![Diagrama de Relaciones](entity-relationship-diagram.mermaid)
 
 > **Explicación del diagrama**: Este diagrama muestra cómo las diferentes entidades se relacionan entre sí, permitiendo la estructura adecuada de la base de datos y las interacciones entre los diferentes servicios.
 
