@@ -46,10 +46,11 @@ Para poder utilizar servicios que requieren autenticación a través de una cuen
 7. Una vez generada, copia la contraseña y utilízala en tu proyecto.
 8. En la raiz del proyecto, tenes que generar un archivo **.env** que contenga lo siguente:
 
-   ```bash
+ ```bash
 MAIL_USERNAME=tucorreo@gmail.com
 MAIL_PASSWORD=contraseña que te dio gmail
 MAIL_FROM=tucorreo@gmail.com
+
 > **Nota**: La contraseña de aplicación es diferente de tu contraseña normal de Gmail y solo se usa para autenticar aplicaciones externas.
 
 
