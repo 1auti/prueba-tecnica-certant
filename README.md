@@ -61,7 +61,42 @@ MAIL_FROM=tucorreo@gmail.com
 
 Este proyecto utiliza **Docker** para gestionar los servicios de PostgreSQL y pgAdmin. Para configurar el entorno de desarrollo, sigue los siguientes pasos:
 
-1. **Clona el repositorio** en tu máquina local.
+ Ejecutar Docker Compose
+Una vez que tienes el archivo docker-compose.yml, puedes ejecutar los siguientes comandos:
 
-   ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+Construir y lanzar los servicios:
+
+bash
+Copy code
+docker-compose up
+Este comando descargará las imágenes necesarias, creará los contenedores y los levantará.
+
+Si necesitas correrlo en segundo plano (modo detached):
+
+bash
+Copy code
+docker-compose up -d
+Para detener los servicios:
+
+bash
+Copy code
+docker-compose down
+
+
+## Configurar un Proyecto Angular
+
+ Instalar dependencias con npm install
+Dentro del directorio del proyecto, ejecuta el siguiente comando para instalar todas las dependencias necesarias que se encuentran en el archivo package.json:
+
+bash
+Copy code
+npm install
+Este comando descarga todas las dependencias del proyecto, como las bibliotecas de Angular y otras necesarias para el funcionamiento de la aplicación.
+
+Paso 3: Ejecutar el servidor de desarrollo con ng serve
+Una vez que las dependencias se hayan instalado correctamente, puedes iniciar el servidor de desarrollo con el siguiente comando:
+
+bash
+Copy code
+ng serve
+Por defecto, el servidor de Angular se ejecuta en el puerto 4200, por lo que podrás acceder a la aplicación a través de http://localhost:4200 en tu navegador.
