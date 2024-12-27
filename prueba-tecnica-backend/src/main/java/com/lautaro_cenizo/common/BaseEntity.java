@@ -18,8 +18,8 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
+@MappedSuperclass //Indica que esta clase no se mapea directamente a una tabla en la base de datos, pero sus propiedades serán heredadas por las subclases que sí sean entidades.
+@EntityListeners(AuditingEntityListener.class) // Activa la funcionalidad de auditoría en esta clase, utilizando el listener AuditingEntityListener para gestionar los valores de las propiedades de auditoría como createdDate o lastModifiedBy.
 @SuperBuilder
 public class BaseEntity {
 
